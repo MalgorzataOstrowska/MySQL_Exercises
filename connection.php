@@ -1,13 +1,10 @@
 <?php
 
 $connection = new mysqli(
-    'localhost',
-    //'nieistniejacy_serwer_MySQL',    
+    'localhost',   
     'root',
-    //'nieistniejacy_uzytkownik',
     'coderslab'
-    //'byle_jakie_haslo',
-    //null
+    // , 'test_3'        // wersja 1
     );
    
 if ($connection->connect_error){
@@ -16,8 +13,9 @@ if ($connection->connect_error){
 echo "Udane połączenie";
 
 
-$result = $connection->query("CREATE DATABASE test_3");
-//$result = $connection->query("BYLE CO DATABASE test_3");
+$result = $connection->query('USE test_3');   // wersja 2
+
+//$result = $connection->query("CREATE DATABASE test_3");       // usówamy tworzenie
 
 if ($result == false){
     die('BLAD SQL: ' . $connection->error);
